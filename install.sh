@@ -55,8 +55,4 @@ else
     echo "No fonts directory found. Skipping font installation."
 fi
 
-# 5. Activate Maruti ZSH by pulling the configuration from .zshrc
-
-source $HOME/.zshrc
-
 echo "Initialization complete. Awaken the wind by running: source ~/.zshrc or by restarting your terminal"
