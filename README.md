@@ -8,6 +8,18 @@
 
 Modern CLI tools have become bloated, adding seconds of latency to your terminal startup times. `maruti-zsh` returns to the roots of shell scripting: **speed, transparency, and modularity.** 
 
+## 📋 Prerequisites
+
+Before running the installation script, ensure you have the following components installed on your machine:
+
+1. **Zsh** (Required)  
+   * Debian/Ubuntu: `sudo apt install zsh`
+   * Fedora/RHEL: `sudo dnf install zsh`
+   * Arch Linux: `sudo pacman -S zsh`
+   * macOS: Included natively (or `brew install zsh`)
+
+2. **Git** (Required for cloning plugins)
+
 Every feature in this repository—from the custom keyboard widgets to the alias profiles—runs natively without external package dependencies. If you want a terminal that awakens instantly like the wind, you're in the right place.
 
 ## 🚀 Key Features At A Glance

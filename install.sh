@@ -12,6 +12,14 @@ cat << "EOF"
       ⚡ Minimalist Zsh Engine ⚡
 EOF
 
+# Verify Zsh is installed before proceeding
+if ! command -v zsh >/dev/null 2>&1; then
+    echo "❌ Error: Zsh is not installed on this system."
+    echo "Please install Zsh using your system's package manager first."
+    echo "Example (Debian/Ubuntu): sudo apt install zsh"
+    exit 1
+fi
+
 # Save the exact path where the user executed this script from
 REPO_SRC_DIR=$(pwd)
 
