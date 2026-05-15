@@ -18,10 +18,10 @@ ENABLE_CORRECTION="true"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.maruti-zsh/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.maruti-zsh/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-for f in ~/.zsh//*.zsh(N); do source "$f"; done
+for f in ~/.maruti-zsh/.zsh//*.zsh(N); do source "$f"; done
 
 # Set path to add binaries
 

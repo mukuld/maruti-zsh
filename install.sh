@@ -14,7 +14,7 @@ export PLUGIN_PATH=$INSTALL_PATH/.zsh/plugins
 
 echo "Downloading PowerLevel10k repo."
 cd ~/
-git clone https://github.com/romkatv/powerlevel10k.git
+git clone https://github.com/romkatv/powerlevel10k.git ~/
 
 echo "Deploying Maruti-Zsh configurations..."
 mkdir -p $PLUGIN_PATH
