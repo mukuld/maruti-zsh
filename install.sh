@@ -49,10 +49,10 @@ fi
 if [ -d "$REPO_SRC_DIR/fonts" ]; then
     echo "Installing fonts..."
     mkdir -p "$HOME/.fonts"
-    cp "$REPO_SRC_DIR"/fonts/FiraCodeNerdFont-Medium.ttf "$HOME/.fonts/"
+    cp "$REPO_SRC_DIR"/fonts/* "$HOME/.fonts/"
     fc-cache -f
 else
     echo "No fonts directory found. Skipping font installation."
 fi
 
-echo "Initialization complete. Awaken the wind by running: source ~/.zshrc"
+echo "Initialization complete. Awaken the wind by running: source ~/.zshrc or by restarting your terminal"
