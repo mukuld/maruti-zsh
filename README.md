@@ -40,6 +40,9 @@ The following plugins are also cloned automatically by the installer — no manu
 * **Smart Clear (`Ctrl+K`):** Clears the screen buffer and automatically renders a directory listing, keeping your workspace oriented. Uses `-G` on macOS and `--color=auto` on Linux.
 * **Inline Search Pipes (`Alt+G`):** Append `| grep ` to your current command on the fly.
 * **Edit in `$EDITOR` (`Ctrl+O`):** Open the current command buffer in your full editor when a one-liner gets unwieldy.
+* **Native Tab Completion:** Arrow-key navigable completion menus with colorized
+  output, category grouping, and automatic detection of newly installed executables —
+  all driven by Zsh's built-in `zstyle` system, no plugin required.
 
 ## ⌨️ Keybinding Reference
 
@@ -79,9 +82,11 @@ The following plugins are also cloned automatically by the installer — no manu
 ```
 maruti-zsh/
 ├── .zsh/
-│   ├── key-bindings.zsh   # Custom ZLE widgets and keybindings
-│   ├── zsh-aliases.zsh    # Alias definitions
-│   └── zsh-history.zsh    # History configuration and options
+│   ├── key-bindings.zsh      # Custom ZLE widgets and keybindings
+│   ├── zsh-aliases.zsh       # Alias definitions
+│   ├── zsh-completion.zsh    # Completion system and zstyle config
+│   ├── zsh-history.zsh       # History configuration and options
+├   └── plugins/              # Pure git-cloned plugins
 ├── fonts/                 # Bundled Nerd Fonts (FiraCode, MesloLGS NF)
 ├── install.sh             # Automated installer
 ├── uninstall.sh           # Clean removal script
