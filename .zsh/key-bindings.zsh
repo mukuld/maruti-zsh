@@ -5,17 +5,17 @@ bindkey '^[[1;3C' forward-word
 # Ctrl key bindings
 bindkey '^H' backward-kill-word # Ctrl + Backspace. Delete previous word
 bindkey '^[[3;5~' kill-word    # Ctrl + Delete: Delete the word in front of the cursor
-bindkey '^U' kill-whole-line 
+bindkey '^U' kill-buffer 
 bindkey '^L' kill-line 
 
-# Bind Up and Down arros to history search
+# Bind Up and Down arrows to history search
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # Key bindings to manage cursor movement
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
-# Alt + . (Period): Insert the last arugment from your previous command
+# Alt + . (Period): Insert the last argument from your previous command
 # This is incredibly useful for: mkdir test && cd [Alt+.]
 bindkey '\e.' insert-last-word
 
@@ -46,7 +46,7 @@ bindkey '\es' sudo-command-line
 # Jump to Nginx Configs
 nginx-cd() { BUFFER="cd /etc/nginx/sites-available/"; zle accept-line }
 zle -N nginx-cd
-bindkey '^M' nginx-cd 	# Bind to Ctrl+M
+bindkey '^XN' nginx-cd 	# Bind to Ctrl+X N
 
 # Jump to Web Root
 www-cd() { BUFFER="cd /var/www/html/"; zle accept-line }
