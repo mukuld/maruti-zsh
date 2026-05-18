@@ -56,8 +56,12 @@ bindkey '^XW' www-cd 	# Bind to Ctrl+X W
 # Clear screen function
 clear-ls-widget() {
 	clear
+	if [[ "$OSTPYE" == 'darwin"* ']]; then
 	# -p adds a / to directories, -G adds color (Debian/Linux)
-	ls -pG
+		ls -pG
+	else
+		ls -p --color=auto
+	fi
 	# Tell ZLE to redraw the prompt at the bottom
 	zle redisplay
 }
