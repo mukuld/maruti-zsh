@@ -5,7 +5,7 @@ bindkey '^[[1;3C' forward-word
 # Ctrl key bindings
 bindkey '^H' backward-kill-word # Ctrl + Backspace. Delete previous word
 bindkey '^[[3;5~' kill-word    # Ctrl + Delete: Delete the word in front of the cursor
-bindkey '^U' kill-buffer 
+bindkey '^U' kill-whole-line 
 bindkey '^L' kill-line 
 
 # Bind Up and Down arros to history search
@@ -20,7 +20,6 @@ bindkey '^E' end-of-line
 bindkey '\e.' insert-last-word
 
 # Key bindings for system tools
-#bindkey '^K' clear-screen
 # Ctrl + O: Open the current command in your $EDITOR (nano or vim)
 # Perfect for when a one-line gets too long and you need a full screen to see it.
 autoload -z edit-command-line
@@ -47,12 +46,12 @@ bindkey '\es' sudo-command-line
 # Jump to Nginx Configs
 nginx-cd() { BUFFER="cd /etc/nginx/sites-available/"; zle accept-line }
 zle -N nginx-cd
-bindkey '^N' nginx-cd 	# Bind to Ctrl+N
+bindkey '^M' nginx-cd 	# Bind to Ctrl+M
 
 # Jump to Web Root
 www-cd() { BUFFER="cd /var/www/html/"; zle accept-line }
 zle -N www-cd
-bindkey '^W' www-cd 	# Bind to Ctrl+W
+bindkey '^XW' www-cd 	# Bind to Ctrl+X W
 
 # Clear screen function
 clear-ls-widget() {

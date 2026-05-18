@@ -8,3 +8,5 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY	# Write to the history file immediately
+setopt SHARE_HISTORY        # Share history between terminals
+setopt HIST_IGNORE_SPACE    # Commands prefixed with a space won't be saved (Useful for secrets)

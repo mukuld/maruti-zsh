@@ -8,10 +8,9 @@ fi
 # Created by newuser for 5.9
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-CASE_SENSITIVE="true"
 setopt CORRECT
 setopt CORRECT_ALL
-compinit -Uz compinit && compinit
+autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

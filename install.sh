@@ -63,7 +63,9 @@ if [ -d "$REPO_SRC_DIR/fonts" ]; then
     echo "Installing fonts..."
     mkdir -p "$FONT_DIR"
     cp "$REPO_SRC_DIR"/fonts/* "$FONT_DIR/"
-    fc-cache -f
+    if command -v fc-cache > /dev/null 2>&1; then
+        fc-cache -f
+    fi
 else
     echo "No fonts directory found. Skipping font installation."
 fi
