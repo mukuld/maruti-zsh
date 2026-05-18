@@ -7,13 +7,11 @@ fi
 
 # Created by newuser for 5.9
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-#source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_MODE="nerdfont-complete"
 
 CASE_SENSITIVE="true"
-ENABLE_CORRECTION="true"
+setopt CORRECT
+setopt CORRECT_ALL
+compinit -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -21,7 +19,7 @@ ENABLE_CORRECTION="true"
 source ~/.maruti-zsh/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.maruti-zsh/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-for f in ~/.maruti-zsh/.zsh//*.zsh(N); do source "$f"; done
+for f in ~/.maruti-zsh/.zsh/*.zsh(N); do source "$f"; done
 
 # Set path to add binaries
 

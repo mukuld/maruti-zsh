@@ -54,10 +54,15 @@ if [ ! -d "$PLUGIN_PATH/zsh-syntax-highlighting" ]; then
 fi
 
 # 4. Font deployment handling
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    FONT_DIR="$HOME/Library/Fonts"
+else
+    FONT_DIR="$HOME/.fonts"
+fi
 if [ -d "$REPO_SRC_DIR/fonts" ]; then
     echo "Installing fonts..."
-    mkdir -p "$HOME/.fonts"
-    cp "$REPO_SRC_DIR"/fonts/* "$HOME/.fonts/"
+    mkdir -p "$FONT_DIR"
+    cp "$REPO_SRC_DIR"/fonts/* "$FONT_DIR/"
     fc-cache -f
 else
     echo "No fonts directory found. Skipping font installation."
