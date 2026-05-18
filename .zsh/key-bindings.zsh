@@ -56,7 +56,7 @@ bindkey '^XW' www-cd 	# Bind to Ctrl+X W
 # Clear screen function
 clear-ls-widget() {
 	clear
-	if [[ "$OSTYPE" == 'darwin"* ']]; then
+	if [[ "$OSTYPE" == "darwin"* ]]; then
 	# -p adds a / to directories, -G adds color (Debian/Linux)
 		ls -pG
 	else
