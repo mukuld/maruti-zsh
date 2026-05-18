@@ -23,8 +23,8 @@ fi
 # Save the exact path where the user executed this script from
 REPO_SRC_DIR=$(pwd)
 
-export INSTALL_PATH=$HOME/.maruti-zsh
-export PLUGIN_PATH=$INSTALL_PATH/.zsh/plugins
+INSTALL_PATH=$HOME/.maruti-zsh
+PLUGIN_PATH=$INSTALL_PATH/.zsh/plugins
 
 # 1. Handle Powerlevel10k safely
 echo "Downloading PowerLevel10k repo..."
