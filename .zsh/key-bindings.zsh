@@ -22,7 +22,7 @@ bindkey '\e.' insert-last-word
 # Key bindings for system tools
 # Ctrl + O: Open the current command in your $EDITOR (nano or vim)
 # Perfect for when a one-line gets too long and you need a full screen to see it.
-autoload -z edit-command-line
+autoload -Uz edit-command-line
 zle -N edit-command-line 	# zle is the Zsh Line Editor. Imagine it as a tiny text editor living inside the command line
 bindkey '^O' edit-command-line
 
