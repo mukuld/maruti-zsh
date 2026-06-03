@@ -20,8 +20,8 @@ if ! command -v zsh >/dev/null 2>&1; then
     exit 1
 fi
 
-# Save the exact path where the user executed this script from
-REPO_SRC_DIR=$(pwd)
+# Save the exact directory where this script actually lives.
+REPO_SRC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 
 INSTALL_PATH=$HOME/.maruti-zsh
 PLUGIN_PATH=$INSTALL_PATH/.zsh/plugins
@@ -36,12 +36,33 @@ fi
 
 # 2. Deploy Maruti-Zsh configurations using explicit absolute paths
 echo "Deploying Maruti-Zsh configurations..."
-mkdir -p "$INSTALL_PATH/.zsh"
+
+if [ "$REPO_SRC_DIR" != "$INSTALL_PATH" ]; then
+    mkdir -p "$INSTALL_PATH"
+    
+    # Cleanly mirror core modular configurations, fonts, and git history tracking
+    cp -r "$REPO_SRC_DIR/.zsh" "$INSTALL_PATH/"
+    cp "$REPO_SRC_DIR/zshrc" "$INSTALL_PATH/"
+    
+    if [ -d "$REPO_SRC_DIR/fonts" ]; then
+        cp -r "$REPO_SRC_DIR/fonts" "$INSTALL_PATH/"
+    fi
+    if [ -d "$REPO_SRC_DIR/.git" ]; then
+        cp -r "$REPO_SRC_DIR/.git" "$INSTALL_PATH/"
+    fi
+fi
+
+# Ensure plugin paths exist regardless of installation context
 mkdir -p "$PLUGIN_PATH"
 
-# Copy files explicitly from our saved source directory context
-cp -r "$REPO_SRC_DIR"/.zsh/*.zsh "$INSTALL_PATH/.zsh/" 2>/dev/null || true
-cp "$REPO_SRC_DIR"/zshrc "$HOME/.zshrc"
+# Backup existing .zshrc safely (handles files, symlinks, and directories)
+if [ -e "$HOME/.zshrc" ] || [ -L "$HOME/.zshrc" ]; then
+    echo "⚠️ Existing .zshrc found. Backing up to ~/.zshrc.bak"
+    mv -f "$HOME/.zshrc" "$HOME/.zshrc.bak"
+fi
+
+# Always deploy the master zshrc configuration from the active engine directory
+cp "$INSTALL_PATH/zshrc" "$HOME/.zshrc"
 
 # 3. Download Plugins into dedicated subfolders
 echo "Downloading plugins..."
@@ -59,10 +80,24 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     FONT_DIR="$HOME/.fonts"
 fi
-if [ -d "$REPO_SRC_DIR/fonts" ]; then
+
+# Assign the true source path for fonts dynamically
+FONT_SRC="$INSTALL_PATH/fonts"
+if [ "$REPO_SRC_DIR" != "$INSTALL_PATH" ] && [ -d "$REPO_SRC_DIR/fonts" ]; then
+    FONT_SRC="$REPO_SRC_DIR/fonts"
+fi
+
+if [ -d "$FONT_SRC" ]; then
     echo "Installing fonts..."
     mkdir -p "$FONT_DIR"
-    cp "$REPO_SRC_DIR"/fonts/* "$FONT_DIR/"
+    
+    # Safely loop expansion to protect against empty directories under set -e
+    for font in "$FONT_SRC"/*; do
+        if [ -e "$font" ]; then
+            cp "$font" "$FONT_DIR/"
+        fi
+    done
+    
     if command -v fc-cache > /dev/null 2>&1; then
         fc-cache -f
     fi

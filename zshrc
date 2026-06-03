@@ -14,11 +14,12 @@ setopt CORRECT_ALL
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# 1. Run the loop first to establish cross-platform key baselines, completions, and history
+for f in ~/.maruti-zsh/.zsh/*.zsh(N); do source "$f"; done
+
+# 2. Source the plugins last so they can safely bind to your normalized environment
 source ~/.maruti-zsh/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.maruti-zsh/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-for f in ~/.maruti-zsh/.zsh/*.zsh(N); do source "$f"; done
-
 # Set path to add binaries
-
 export PATH=$PATH:/usr/sbin
