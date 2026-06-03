@@ -1,5 +1,7 @@
 # 🔱 Maruti-Zsh
 
+<img src="assets/maruti.jpeg" align="right" width="150" alt="Maruti Zsh Logo" />
+
 > **Maruti** (noun): Another name for Hanuman, the ancient Indian deity of the wind—celebrated for his unmatched speed, agility, and immense strength hidden within a modest form.
 
 `maruti-zsh` is a high-performance, ultra-lightweight, and modular shell configuration engine built entirely on native Zsh internals. Born out of necessity to bring a modern, blazing-fast developer workflow to a repurposed 2010 Gateway server running Debian 13, this setup replaces heavy, opaque frameworks like Oh-My-Zsh with clean, human-readable shell scripts.
@@ -87,6 +89,8 @@ maruti-zsh/
 │   ├── zsh-completion.zsh    # Completion system and zstyle config
 │   ├── zsh-history.zsh       # History configuration and options
 ├   └── plugins/              # Pure git-cloned plugins
+├── assets/                # README images, badges, logos
+│   └── maruti-logo.jpeg
 ├── fonts/                 # Bundled Nerd Fonts (FiraCode, MesloLGS NF)
 ├── install.sh             # Automated installer
 ├── uninstall.sh           # Clean removal script
