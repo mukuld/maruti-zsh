@@ -1,6 +1,6 @@
 # 🔱 Maruti-Zsh
 
-<img src="assets/maruti.jpeg" align="right" width="150" alt="Maruti Zsh Logo" />
+<img src="assets/maruti.jpeg" align="left" width="150" alt="Maruti Zsh Logo" />
 
 > **Maruti** (noun): Another name for Hanuman, the ancient Indian deity of the wind—celebrated for his unmatched speed, agility, and immense strength hidden within a modest form.
 
@@ -90,7 +90,7 @@ maruti-zsh/
 │   ├── zsh-history.zsh       # History configuration and options
 ├   └── plugins/              # Pure git-cloned plugins
 ├── assets/                # README images, badges, logos
-│   └── maruti-logo.jpeg
+│   └── maruti.jpeg
 ├── fonts/                 # Bundled Nerd Fonts (FiraCode, MesloLGS NF)
 ├── install.sh             # Automated installer
 ├── uninstall.sh           # Clean removal script
